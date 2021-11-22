@@ -30,7 +30,7 @@ mysite/
 │ ├── __init__.py
 │ ├── admin.py
 │ ├── apps.py
-│ ├── migrations
+│ ├─┬ migrations
 │ │ └── __init__.py
 │ ├── models.py
 │ ├── tests.py
@@ -230,7 +230,7 @@ author_name [Daniel Feldroy]:
   - 他の人のプロジェクトテンプレートを研究することで、様々なトリックを学ぶことができる。
 - [TIP] Cookiecutter-django-vue-graphql-aws
   - Cookiecutter テンプレートの中で優れたものとして、Grant Mc-Connaughey 氏の `cookiecutter-django-vue-graphql-aws` が挙げられる。
-  - このテンプレートは、私たちが楽しんでいる技術 (Django、GraphQL、Vue、AWS Lambda + Zappaなど) を簡潔にまとめています。
+  - このテンプレートは、我々にとって馴染み深い技術 (Django、GraphQL、Vue、AWS Lambda + Zappaなど) を簡潔にまとめている。
   - 文書化されていないものは、明示的に命名されている。
   - [ここ](github.com/grantmcconnaughey/cookiecutter-django-vue-graphql-aws)から参照できる。
 
