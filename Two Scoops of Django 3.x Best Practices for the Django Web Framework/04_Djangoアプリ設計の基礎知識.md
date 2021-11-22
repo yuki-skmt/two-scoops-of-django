@@ -1,7 +1,7 @@
 # Two Scoops of Django 3.x
 
 ## 4. Djangoアプリ設計の基礎知識
-- Django開発の初心者が、Djangoの「アプリ」という用語の使い方の理解に苦しむことは珍しくない。
+- Django開発の初心者は、Djangoにおける「アプリ」という用語の理解に苦しむことがよくある。
   - そこで、Djangoアプリの設計に入る前にいくつかの定義を確認する。
 - **Djangoプロジェクト**とは、 Djangoのフレームワークを使ったWebアプリケーションのことである。
 - **Djangoアプリ**とは、プロジェクトの一機能として設計されたライブラリのことである。
@@ -75,5 +75,43 @@ scoops/
 - PythonやDjangoは十分に柔軟性があるので、この慣例に違反する名前を付けることもできるが、そうした場合には問題が生じることになる。
   - 技術的な観点での問題がすぐに起こるわけではなく、しばらくしてから標準的でないモジュール名が不快な経験をもたらす原因となるだろう。
 
+#### 4.4.2 一般的でないアプリのモジュール
 
+```
+# Common modules
+scoops/
+├── api/
+├── behaviors.py
+├── constants.py
+├── context_processors.py
+├── decorators.py
+├── db/
+├── exceptions.py
+├── fields.py
+├── factories.py
+├── helpers.py
+├── managers.py
+├── middleware.py
+├── schema.py
+├── signals.py
+├── utils.py
+└── viewmixins.py
+```
 
+|ファイル・ディレクトリ名|目的|
+|---|:--|
+|api/|apiを作成する際に必要な様々なモジュールを配置する|
+|behaviors.py|モデルミックスインを配置する。(6.7.1 参照)|
+|constants.py|アプリ単位の設定値を配置する。設定値が多い場合はさらに分割するとプロジェクトの見通しを良くなる。|
+|decorators.py|デコレーターを配置する。(9.3 参照)|
+|db/|カスタムモデルのフィールドやコンポーネントを配置する。|
+|fields.py|一般的にフォームフィールドに使用される。db/パッケージを作成するほどのフィールドがない場合、モデルに使用されることもある。|
+|factories.py|テストデータのファクトリを配置する。(24.3.5 参照)|
+|helpers.py|ヘルパー関数を配置する。ViewやModelは肥大化する傾向にあるので、それらから切り出して軽量化する。utils.pyと命名する場合もある。|
+|managers.py|(Modelが大きくなりすぎた場合)カスタムモデルマネージャーをこのモジュールに配置する。|
+|schema.py|GraphQL APIのビハインドコードを配置する。|
+|signals.py|カスタムシグナルを配置する。(非推奨)|
+|utils.py|helpers.pyと同義。|
+|viewmixins.py|View Mixinを配置する。(Viewを軽量化できる)|
+
+- 上記のモジュールはすべて「アプリレベル」にフォーカスしたものである。

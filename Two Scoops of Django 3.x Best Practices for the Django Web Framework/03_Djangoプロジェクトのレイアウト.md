@@ -10,7 +10,7 @@
 - github.com/grantmcconnaughey/cookiecutter-django-vue-graphql-aws
   - 本章で紹介されている。
 - djangopackages.org/grids/g/cookiecutters/ 
-  - cookiecutter テンプレートの代替になるリストです。
+  - cookiecutter テンプレートの代替になるリスト。
 
 ### 3.1 Django 3 のデフォルトプロジェクトのレイアウト
 - `startproject` や `startapp` を実行したときに作成される、デフォルトのプロジェクトレイアウトを見ていく。
@@ -35,7 +35,7 @@ mysite/
 │ ├── models.py
 │ ├── tests.py
 │ └── views.py
-└── mysite
+├── mysite
 ├── __init__.py
 ├── asgi.py
 ├── settings.py
@@ -44,7 +44,7 @@ mysite/
 ```
 
 - Django のデフォルトのプロジェクトレイアウトにはいくつかの問題がある。
-  - チュートリアルでは便利なのですが、実践的なプロジェクト開発においては、 それほど便利ではない。
+  - チュートリアルには便利だが、実践的なプロジェクト開発においては、 それほど便利ではない。
   - 本章の残りでその理由を解説する。
 
 ### 3.2 本書で推奨されるプロジェクトレイアウト
