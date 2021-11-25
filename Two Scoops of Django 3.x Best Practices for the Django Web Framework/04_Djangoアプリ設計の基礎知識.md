@@ -11,7 +11,7 @@
 - **サードパーティのDjangoパッケージ**とは、パッケージ化された、プラグインとして利用可能 (再利用可能)なDjangoアプリのことである。
 
 ### 4.1 Djangoアプリ設計の黄金律
-> "優れたDjangoアプリを開発し、維持していく秘訣は、Douglas McIlroyによる次のUnix哲学に従うことだ。「一つのことをするプログラムを書き、それをうまくやる」"
+> 「優れたDjangoアプリを開発し、維持していく秘訣は、Douglas McIlroyによる次のUnix哲学に従うことだ。『一つのことをするプログラムを書き、それをうまくやる』」
 > ーJames Bennett (Django のコア開発者)
 
 - それぞれのアプリは自分自身のタスクに集中しなければならない。
@@ -133,7 +133,7 @@ scoops/
 - これらのアクションの典型的な配置は、UserとTicketに割り当てられたマネージャのメソッドに分散している。
 - また、代わりにクラスメソッドを使用する場合もある。
 
-```python:typical_business_logic_placement.py
+```python
 class UserManager(BaseUserManager):
     """In users/managers.py"""
     def create_user(self, email=None, password=None, avatar_url=None):
@@ -171,7 +171,7 @@ scoops/
 
 - サービスレイヤのコードは service.py と selectors.py に配置する。
 
-```python:service_layer_business_logic_placement.py
+```python
 # In users/services.py
 from .models import User
 from tickets.models import Ticket, send_ticket_to_guest_checkin

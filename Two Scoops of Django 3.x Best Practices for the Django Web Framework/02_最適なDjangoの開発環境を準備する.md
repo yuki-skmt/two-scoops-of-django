@@ -63,14 +63,14 @@
 - virtualenvwrapperを使用していない場合
   - コマンドが冗長。
 
-```command:
+```terminal
 $ source ~/.virtualenvs/twoscoops/bin/activate
 ```
 
 - virtualenvwrapperを使用した場合
   - コマンドが簡潔。
 
-```command:
+```terminal
 $ workon twoscoops
 ```
 

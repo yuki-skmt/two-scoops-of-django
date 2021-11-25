@@ -15,7 +15,7 @@
 ### 3.1 Django 3 のデフォルトプロジェクトのレイアウト
 - `startproject` や `startapp` を実行したときに作成される、デフォルトのプロジェクトレイアウトを見ていく。
 
-```command:
+```terminal
 django-admin startproject mysite
 cd mysite
 django-admin startapp my_app
@@ -145,14 +145,14 @@ icecreamratings_project
 
 - Mac や Linux の例
 
-```
+```terminal
 ~/projects/icecreamratings_project/
 ~/.envs/icecreamratings/
 ```
 
 - Windowsの例
 
-```
+```terminal
 c:projects\icecreamratings_project\
 c:envs\icecreamratings\
 ```
@@ -160,7 +160,7 @@ c:envs\icecreamratings\
 - virtualenvwrapper (Mac/Linux) またはvirtualenvwrapper-win (Windows) を使用している例
   - ディレクトリはデフォルトで「~/.virtualenvs/」となり、以下のように配置される。
 
-```
+```terminal
 ~/.virtualenvs/icecreamratings/
 ```
 
@@ -175,13 +175,13 @@ c:envs\icecreamratings\
 #### 3.4.1 現在の依存関係のリストアップ
 - virtualenvで使用している依存関係のバージョンを判断するのが難しい場合、コマンドラインで次のように入力して依存関係をリストアップすることができる。
 
-```
+```terminal
 $ pip freeze
 ```
 
 MacやLinuxでは、これをパイプでrequirements.txtファイルに書き出すことができる。
 
-```
+```terminal
 $ pip freeze > requirements.txt
 ```
 

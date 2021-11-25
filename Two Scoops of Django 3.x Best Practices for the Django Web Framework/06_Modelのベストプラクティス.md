@@ -73,7 +73,7 @@
 - これらのフィールドを一つ一つのモデルに手動で追加することもできるが、作業量が多く、ヒューマンエラーの危険性もある。
 - `TimeStampedModel`を用いることでモデルの実装がより簡単になる。
 
-```python:core/models.py
+```python
 from django.db import models
 
 class TimeStampedModel(models.Model):
@@ -92,7 +92,7 @@ class TimeStampedModel(models.Model):
   - この記述により、`TimeStampedModel`クラスは抽象基底クラスになる。
 - `TimeStampedModel`を抽象基底クラスとして定義し、新しいクラスを定義する際にそれを継承することで、`migrate`の実行時に`core_timestampedmodel`テーブルが作成されなくなる。
 
-```python:flavors/models.py
+```python
 # flavors/models.py
 from django.db import models
 
@@ -152,7 +152,7 @@ class Flavor(TimeStampedModel):
 - しかし、既存のデータを新しく追加されたフィールドに結合するなど、処理の中には冪等 (訳者註: 状態を持たず、特定の入力に対する出力が常に一意に定まること) なものもあり、これらの関数のために`reverse_code`を書くことは不可能か、無意味である。
 - このような場合は、`RunPython.noop`を`reverse_code`として使用する。
 
-```python:runpython_noop.py
+```python
 from django.db import migrations, models
 
 def add_cones(apps, schema_editor):
@@ -294,7 +294,7 @@ class Migration(migrations.Migration):
   - docs.djangoproject.com/en/3.2/ref/models/fields/#django.db.models.Field.channels 
 - アイスクリームをベースにした例に変換すると、こうなります。
 
-```python:choice_model.py
+```python
 # orders/models.py
 from django.db import models
 
@@ -319,7 +319,7 @@ class IceCreamOrder(models.Model):
 
 - このモデルを使うと次のようになる。
 
-```
+```python
 >>> from orders.models import IceCreamOrder
 >>> IceCreamOrder.objects.filter(flavor=IceCreamOrder.FLAVOR_CHOCOLATE)
 [<icecreamorder: 35>, <icecreamorder: 42>, <icecreamorder: 49>]
@@ -330,7 +330,7 @@ class IceCreamOrder(models.Model):
 #### 6.4.8 選択肢に列挙型を使う
 - 選択肢にDjangoの列挙型を使うことを推奨している開発者もいる。
 
-```python:choice_enum_model.py
+```python
 from django.db import models
 
 class IceCreamOrder(models.Model):
@@ -346,7 +346,7 @@ class IceCreamOrder(models.Model):
     )
 ```
 
-```
+```python
 >>> from orders.models import IceCreamOrder
 >>> IceCreamOrder.objects.filter(flavor=IceCreamOrder.Flavors.CHOCOLATE)
 [<icecreamorder: 35>, <icecreamorder: 42>, <icecreamorder: 49>]
@@ -391,7 +391,7 @@ class IceCreamOrder(models.Model):
 - Djangoはモデルクラスごとにデフォルトのモデルマネージャを用意していますが、自分で定義することもできる。
 - ここでは、カスタムモデルマネージャの簡単な例を示す。
 
-```python:custom_model_manager.py
+```python
 from django.db import models
 from django.utils import timezone
 
@@ -410,7 +410,7 @@ class FlavorReview(models.Model):
 
 - 上記モデルで、最初にアイスクリームのフレーバーのレビューの全件数を表示し、次に公開された件数だけを表示したい場合は、次のようにする。
 
-```
+```python
 >>> from reviews.models import FlavorReview
 >>> FlavorReview.objects.count()
 35
@@ -420,7 +420,7 @@ class FlavorReview(models.Model):
 
 - モデルマネージャを追加すれば、更に便利だと考えるかもしれない。そうすれば、次のようになる。
 
-```
+```python
 >>> from reviews.models import FlavorReview
 >>> FlavorReview.objects.filter().count()
 35
